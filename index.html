@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connecta</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="./assets/logo_connecta.png" alt="logo connecta">
+
+            <div class="text_logo">
+                <p class="title_logo">Connecta</p>
+                <p class="subtitle-logo">Agenda de Contatos</p>
+            </div>
+        </a>
+
+        <nav class="buttons_cta">
+            <a href="#sobre">Sobre</a>
+            <a href="#planos">Planos</a>
+            <a href="#contatos">Contatos</a>
+        </nav>
+
+        <button>Entrar</button>
+        <button>Começar Agora</button>
+    </header>
+
+    <main class="main">
+        <section id="sobre" class="section_sobre">
+            <h3>Sobre</h3>
+            <p>
+                O Connecta é uma agenda de contatos desenvolvida para facilitar a organização e o gerenciamento de
+                informações de pessoas de forma simples, rápida e prática. <br>
+                Com o Connecta, é possível cadastrar, visualizar, editar e excluir contatos, mantendo informações
+                importantes organizadas em um único lugar.
+            </p>
+        </section>
+
+        <section id="planos" class="section_planos">
+
+            <div class="planos_header">
+                <h3>Planos</h3>
+
+                <p>
+                    Escolha o plano ideal para organizar seus contatos.
+                </p>
+            </div>
+
+            <div class="planos_container">
+
+                <!-- Plano Gratuito -->
+                <div class="plano_card">
+
+                    <h4>Grátis</h4>
+
+                    <p class="descricao_plano">
+                        Para quem está começando.
+                    </p>
+
+                    <div class="preco">
+                        <span>R$</span> 0
+                        <small>/mês</small>
+                    </div>
+
+                    <ul>
+                        <li>✓ Até 50 contatos</li>
+                        <li>✓ Cadastro de contatos</li>
+                        <li>✓ Edição de contatos</li>
+                        <li>✓ Exclusão de contatos</li>
+                    </ul>
+
+                    <button>Começar Grátis</button>
+
+                </div>
+
+
+                <!-- Plano Pro -->
+                <div class="plano_card destaque">
+
+                    <span class="badge">Mais Popular</span>
+
+                    <h4>Pro</h4>
+
+                    <p class="descricao_plano">
+                        Para quem precisa de mais organização.
+                    </p>
+
+                    <div class="preco">
+                        <span>R$</span> 19,90
+                        <small>/mês</small>
+                    </div>
+
+                    <ul>
+                        <li>✓ Contatos ilimitados</li>
+                        <li>✓ Cadastro de contatos</li>
+                        <li>✓ Edição de contatos</li>
+                        <li>✓ Busca rápida</li>
+                        <li>✓ Organização avançada</li>
+                    </ul>
+
+                    <button>Escolher Pro</button>
+
+                </div>
+
+
+                <!-- Plano Premium -->
+                <div class="plano_card">
+
+                    <h4>Premium</h4>
+
+                    <p class="descricao_plano">
+                        Para uso profissional.
+                    </p>
+
+                    <div class="preco">
+                        <span>R$</span> 39,90
+                        <small>/mês</small>
+                    </div>
+
+                    <ul>
+                        <li>✓ Contatos ilimitados</li>
+                        <li>✓ Todos os recursos Pro</li>
+                        <li>✓ Backup de contatos</li>
+                        <li>✓ Recursos avançados</li>
+                        <li>✓ Suporte prioritário</li>
+                    </ul>
+
+                    <button>Escolher Premium</button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="contatos" class="section_contatos">
+
+            <div class="contatos_header">
+
+                <h3>Entre em Contato</h3>
+
+                <p>
+                    Tem alguma dúvida, sugestão ou precisa de ajuda?
+                    Fale com a equipe Connecta.
+                </p>
+
+            </div>
+
+
+            <div class="contatos_container">
+
+                <!-- Informações -->
+                <div class="contatos_info">
+
+                    <h4>Fale com a gente</h4>
+
+                    <p>
+                        Estamos prontos para ajudar você a aproveitar
+                        ao máximo o Connecta.
+                    </p>
+
+                    <div class="info_item">
+                        <div>
+                            <strong>E-mail</strong>
+                            <p>contato@connecta.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info_item">
+                        <div>
+                            <strong>Telefone</strong>
+                            <p>(00) 00000-0000</p>
+                        </div>
+                    </div>
+
+                    <div class="info_item">
+                        <div>
+                            <strong>Localização</strong>
+                            <p>Brasil</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Formulário -->
+                <div class="contato_form">
+
+                    <form method="post">
+                        <div class="input_group">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                        </div>
+
+                        <div class="input_group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                        </div>
+
+                        <div class="input_group">
+                            <label for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" name="mensagem" rows="5" placeholder="Digite sua mensagem..."
+                                required></textarea>
+                        </div>
+
+                        <button type="submit">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <p>© 2026 Connecta. Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+
+</html>
