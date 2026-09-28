@@ -1,3 +1,14 @@
+:root {
+    --color-primary: #2563eb;
+    --color-primary-dark: #1d4ed8;
+    --color-text: #1e293b;
+    --color-text-light: #64748b;
+    --color-border: #e5e7eb;
+    --color-bg: #ffffff;
+    --font-main: Arial, Helvetica, sans-serif;
+}
+
+/* Reset */
 
 * {
     margin: 0;
@@ -5,90 +16,72 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-main);
     background: #f5f7fb;
-    color: #1e293b;
+    color: var(--color-text);
 }
-
 
 /* =========================
-   HEADER
+HEADER
 ========================= */
 
 header {
     width: 100%;
     height: 90px;
-
     padding: 0 7%;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    background: #ffffff;
-
-    border-bottom: 1px solid #e5e7eb;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
 
     position: sticky;
     top: 0;
     z-index: 1000;
+
 }
 
-
 /* =========================
-   LOGO
+LOGO
 ========================= */
 
 .logo {
     display: flex;
     align-items: center;
-
     text-decoration: none;
-    color: #111827;
-    margin-right: 90px;
+    color: var(--color-text);
     gap: 10px;
+
 }
 
 .logo img {
     width: 55px;
     height: 55px;
-
     object-fit: contain;
 }
 
-.text_logo{
+.text_logo {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
 .title_logo {
     font-size: 25px;
     font-weight: 700;
-
     color: #313131;
-}
-
-.line_logo {
-    width: 1px;
-    height: 30px;
-
-    background: #cbd5e1;
-
-    margin: 0 5px;
 }
 
 .subtitle-logo {
     font-size: 13px;
-    color: #64748b;
+    color: var(--color-text-light);
 }
 
-
 /* =========================
-   NAVEGAÇÃO
+NAVEGAÇÃO
 ========================= */
 
 .buttons_cta {
@@ -99,30 +92,35 @@ header {
 
 .buttons_cta a {
     text-decoration: none;
-
     font-size: 15px;
     font-weight: 600;
-
     color: #475569;
-
     transition: 0.3s;
 }
 
 .buttons_cta a:hover {
-    color: #2563eb;
+    color: var(--color-primary);
+}
+
+.buttons_cta .active {
+    color: var(--color-primary);
 }
 
 
 /* =========================
-   BOTÕES
+BOTÕES
 ========================= */
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
 header button {
     border: none;
     cursor: pointer;
-
     padding: 12px 22px;
-
     border-radius: 8px;
 
     font-size: 14px;
@@ -131,572 +129,41 @@ header button {
     transition: 0.3s;
 }
 
-
 /* Botão Entrar */
 
-header button:first-of-type {
-    margin-left: auto;
-    margin-right: 10px;
-
+.btn-login {
     background: transparent;
-    color: #2563eb;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
 
-    border: 1px solid #2563eb;
 }
 
-header button:first-of-type:hover {
-    background: #2563eb;
+.btn-login:hover {
+    background: var(--color-primary);
     color: white;
 }
-
 
 /* Botão Começar Agora */
 
-header button:last-of-type {
-    background: #2563eb;
+.btn-primary {
+    background: var(--color-primary);
     color: white;
 
     box-shadow: 0 5px 15px rgba(37, 99, 235, 0.25);
+
 }
 
-header button:last-of-type:hover {
-    background: #1d4ed8;
+.btn-primary:hover {
+    background: var(--color-primary-dark);
 
     transform: translateY(-2px);
 
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
-}
 
-
-/* =========================
-   MAIN
-========================= */
-
-.main {
-    width: 100%;
-}
-
-
-/* =========================
-   SEÇÃO SOBRE
-========================= */
-
-.section_sobre {
-    min-height: 500px;
-
-    padding: 100px 10%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    background: linear-gradient(
-        135deg,
-        #eff6ff,
-        #ffffff
-    );
-}
-
-.section_sobre h3 {
-    font-size: 45px;
-
-    margin-bottom: 25px;
-
-    color: #2563eb;
-}
-
-.section_sobre p {
-    max-width: 800px;
-
-    font-size: 19px;
-
-    line-height: 1.8;
-
-    color: #475569;
-}
-
-
-/* =========================
-   PLANOS
-========================= */
-
-.section_planos {
-    min-height: 400px;
-
-    padding: 80px 10%;
-
-    background: #ffffff;
-}
-
-
-/* =========================
-   CONTATOS
-========================= */
-
-.section_contatos {
-    min-height: 400px;
-
-    padding: 80px 10%;
-
-    background: #f8fafc;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    width: 100%;
-
-    padding: 25px;
-
-    text-align: center;
-
-    background: #0f172a;
-
-    color: #94a3b8;
-
-    font-size: 14px;
 }
 
 /* =========================
-   PLANOS
-========================= */
-
-.section_planos {
-    padding: 90px 8%;
-
-    background: #ffffff;
-
-    text-align: center;
-}
-
-.planos_header h3 {
-    font-size: 40px;
-
-    color: #2563eb;
-
-    margin-bottom: 12px;
-}
-
-.planos_header p {
-    color: #64748b;
-
-    font-size: 17px;
-
-    margin-bottom: 50px;
-}
-
-
-/* Cards */
-
-.planos_container {
-    max-width: 1100px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 25px;
-
-    align-items: stretch;
-}
-
-.plano_card {
-    position: relative;
-
-    padding: 35px 30px;
-
-    background: #ffffff;
-
-    border: 1px solid #e2e8f0;
-
-    border-radius: 15px;
-
-    text-align: left;
-
-    transition: 0.3s;
-}
-
-.plano_card:hover {
-    transform: translateY(-8px);
-
-    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.10);
-}
-
-
-/* Plano destaque */
-
-.plano_card.destaque {
-    border: 2px solid #2563eb;
-
-    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
-}
-
-.badge {
-    position: absolute;
-
-    top: -13px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    background: #2563eb;
-
-    color: white;
-
-    padding: 6px 18px;
-
-    border-radius: 20px;
-
-    font-size: 12px;
-
-    font-weight: bold;
-
-    white-space: nowrap;
-}
-
-
-/* Título */
-
-.plano_card h4 {
-    font-size: 25px;
-
-    color: #1e293b;
-
-    margin-bottom: 10px;
-}
-
-.descricao_plano {
-    color: #64748b;
-
-    font-size: 14px;
-
-    min-height: 40px;
-}
-
-
-/* Preço */
-
-.preco {
-    margin: 25px 0;
-
-    font-size: 34px;
-
-    font-weight: bold;
-
-    color: #2563eb;
-}
-
-.preco span {
-    font-size: 17px;
-}
-
-.preco small {
-    font-size: 13px;
-
-    color: #64748b;
-
-    font-weight: normal;
-}
-
-
-/* Lista */
-
-.plano_card ul {
-    list-style: none;
-
-    margin-bottom: 30px;
-}
-
-.plano_card li {
-    padding: 9px 0;
-
-    color: #475569;
-
-    font-size: 14px;
-}
-
-
-/* Botão */
-
-.plano_card button {
-    width: 100%;
-
-    padding: 13px;
-
-    border: 1px solid #2563eb;
-
-    border-radius: 8px;
-
-    background: white;
-
-    color: #2563eb;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-.plano_card button:hover {
-    background: #2563eb;
-
-    color: white;
-}
-
-.plano_card.destaque button {
-    background: #2563eb;
-
-    color: white;
-}
-
-.plano_card.destaque button:hover {
-    background: #1d4ed8;
-}
-
-
-/* =========================
-   CONTATOS
-========================= */
-
-.section_contatos {
-    padding: 90px 8%;
-
-    background: #f8fafc;
-}
-
-.contatos_header {
-    text-align: center;
-
-    margin-bottom: 50px;
-}
-
-.contatos_header h3 {
-    font-size: 40px;
-
-    color: #2563eb;
-
-    margin-bottom: 12px;
-}
-
-.contatos_header p {
-    color: #64748b;
-
-    font-size: 17px;
-}
-
-
-/* Container */
-
-.contatos_container {
-    max-width: 1000px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns: 0.8fr 1.2fr;
-
-    gap: 50px;
-
-    background: white;
-
-    padding: 45px;
-
-    border-radius: 15px;
-
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
-}
-
-
-/* Informações */
-
-.contatos_info h4 {
-    font-size: 25px;
-
-    color: #1e293b;
-
-    margin-bottom: 15px;
-}
-
-.contatos_info > p {
-    color: #64748b;
-
-    line-height: 1.6;
-
-    margin-bottom: 30px;
-}
-
-.info_item {
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-    margin-bottom: 25px;
-}
-
-.info_item > span {
-    width: 45px;
-    height: 45px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    background: #eff6ff;
-
-    border-radius: 10px;
-
-    font-size: 20px;
-}
-
-.info_item strong {
-    display: block;
-
-    color: #334155;
-
-    margin-bottom: 4px;
-}
-
-.info_item p {
-    color: #64748b;
-
-    font-size: 14px;
-}
-
-
-/* =========================
-   FORMULÁRIO
-========================= */
-
-.contato_form form {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 18px;
-}
-
-.input_group {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 7px;
-}
-
-.input_group label {
-    font-size: 14px;
-
-    font-weight: 600;
-
-    color: #334155;
-}
-
-.input_group input,
-.input_group textarea {
-    width: 100%;
-
-    padding: 13px 15px;
-
-    border: 1px solid #cbd5e1;
-
-    border-radius: 8px;
-
-    outline: none;
-
-    font-size: 14px;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    transition: 0.3s;
-}
-
-.input_group textarea {
-    resize: vertical;
-}
-
-.input_group input:focus,
-.input_group textarea:focus {
-    border-color: #2563eb;
-
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
-}
-
-.contato_form button {
-    padding: 14px;
-
-    border: none;
-
-    border-radius: 8px;
-
-    background: #2563eb;
-
-    color: white;
-
-    font-size: 15px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-.contato_form button:hover {
-    background: #1d4ed8;
-
-    transform: translateY(-2px);
-}
-
-
-/* =========================
-   RESPONSIVIDADE
-========================= */
-
-@media (max-width: 900px) {
-
-    .planos_container {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-    }
-
-    .contatos_container {
-        grid-template-columns: 1fr;
-
-        gap: 35px;
-    }
-}
-
-
-@media (max-width: 600px) {
-
-    .section_planos,
-    .section_contatos {
-        padding: 70px 5%;
-    }
-
-    .planos_header h3,
-    .contatos_header h3 {
-        font-size: 32px;
-    }
-
-    .contatos_container {
-        padding: 25px;
-    }
-}
-
-
-/* =========================
-   RESPONSIVIDADE
+RESPONSIVIDADE
 ========================= */
 
 @media (max-width: 1000px) {
@@ -709,25 +176,20 @@ footer {
         display: none;
     }
 
-    .line_logo {
-        display: none;
-    }
-
     .buttons_cta {
         gap: 20px;
     }
-}
 
+
+}
 
 @media (max-width: 750px) {
 
     header {
         height: auto;
-
         padding: 20px;
 
         flex-wrap: wrap;
-
         gap: 20px;
     }
 
@@ -739,23 +201,7 @@ footer {
         justify-content: center;
     }
 
-    header button:first-of-type {
-        margin-left: 0;
-    }
-
-    .section_sobre {
-        padding: 70px 8%;
-    }
-
-    .section_sobre h3 {
-        font-size: 36px;
-    }
-
-    .section_sobre p {
-        font-size: 17px;
-    }
 }
-
 
 @media (max-width: 500px) {
 
@@ -779,9 +225,5 @@ footer {
     header button {
         padding: 10px 15px;
         font-size: 13px;
-    }
-
-    .section_sobre {
-        min-height: 450px;
     }
 }
