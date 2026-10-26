@@ -1,0 +1,15 @@
+{
+    "name": "aluno.formoso/backend",
+    "autoload": {
+        "psr-4": {
+            "AlunoFormoso\\Backend\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Arthur Souza",
+            "email": "arthurdev.ads@gmail.com"
+        }
+    ],
+    "require": {}
+}
