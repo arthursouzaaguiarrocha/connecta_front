@@ -1,5 +1,8 @@
 <div class="page-header">
   <h1><i class="bi bi-chat-dots"></i> CHAT</h1>
+  <div class="actions">
+    <a class="btn btn-outline btn-sm" href="<?= BASE_URL ?>/index.php?url=groups/join"><i class="bi bi-box-arrow-in-right"></i> Entrar com código</a>
+  </div>
 </div>
 
 <div class="chat-shell">
@@ -13,8 +16,9 @@
       <?php if (!$groups): ?>
         <div class="empty-state" style="padding:2rem 1rem">
           <div class="empty-icon"><i class="bi bi-chat"></i></div>
-          <p class="text-sm">Crie um grupo para começar a conversar</p>
+          <p class="text-sm">Crie um grupo ou entre com um código</p>
           <a class="btn btn-primary btn-sm" href="<?= BASE_URL ?>/index.php?url=groups/form">Criar grupo</a>
+          <a class="btn btn-outline btn-sm" href="<?= BASE_URL ?>/index.php?url=groups/join" style="margin-top:.5rem">Entrar com código</a>
         </div>
       <?php else: ?>
         <?php foreach ($groups as $g):
@@ -47,7 +51,7 @@
       <div class="chat-empty">
         <i class="bi bi-chat-square-text" style="font-size:3rem;opacity:.3"></i>
         <h3>Selecione uma conversa</h3>
-        <p class="muted">Escolha um grupo à esquerda ou crie um novo.</p>
+        <p class="muted">Escolha um grupo à esquerda, crie um novo ou entre com código.</p>
       </div>
     <?php else: ?>
       <header class="chat-main-header">
@@ -60,10 +64,17 @@
             <?php if ($activeGroup['tag']): ?>
               <span class="badge badge-primary" style="margin-left:.35rem"><?= e($activeGroup['tag']) ?></span>
             <?php endif; ?>
-            <div class="text-xs muted">Grupo · <?= e($activeGroup['description'] ?? '') ?></div>
+            <div class="text-xs muted">
+              <?= count($members ?? []) ?> membros
+              <?php if (!empty($isAdmin) && !empty($activeGroup['invite_code'])): ?>
+                · Código: <code style="font-size:.75rem"><?= e($activeGroup['invite_code']) ?></code>
+              <?php endif; ?>
+            </div>
           </div>
         </div>
-        <a class="btn btn-ghost btn-sm" href="<?= BASE_URL ?>/index.php?url=groups/form&id=<?= (int)$activeGroup['id'] ?>" title="Editar grupo"><i class="bi bi-three-dots-vertical"></i></a>
+        <?php if (!empty($isAdmin)): ?>
+          <a class="btn btn-ghost btn-sm" href="<?= BASE_URL ?>/index.php?url=groups/form&id=<?= (int)$activeGroup['id'] ?>" title="Gerenciar grupo"><i class="bi bi-three-dots-vertical"></i></a>
+        <?php endif; ?>
       </header>
 
       <div class="chat-messages" id="chat-messages">

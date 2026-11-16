@@ -76,6 +76,9 @@ try {
         case 'groups/delete':
             (new GroupsController())->delete();
             break;
+        case 'groups/join':
+            (new GroupsController())->join();
+            break;
         case 'chat':
             (new ChatController())->index();
             break;

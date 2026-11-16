@@ -16,11 +16,15 @@ class ChatController extends Controller
 
         $activeGroup = null;
         $messages = [];
+        $members = [];
+        $isAdmin = false;
 
         if ($groupId) {
             $activeGroup = $this->groups->find($groupId, $userId);
             if ($activeGroup) {
                 $messages = $this->groups->messages($groupId);
+                $members = $this->groups->userMembers($groupId);
+                $isAdmin = $this->groups->isAdmin($groupId, $userId);
             } else {
                 $groupId = null;
             }
@@ -30,6 +34,8 @@ class ChatController extends Controller
             $activeGroup = $allGroups[0];
             $groupId = (int) $activeGroup['id'];
             $messages = $this->groups->messages($groupId);
+            $members = $this->groups->userMembers($groupId);
+            $isAdmin = $this->groups->isAdmin($groupId, $userId);
         }
 
         $this->appView('chat/index', [
@@ -39,7 +45,10 @@ class ChatController extends Controller
             'activeGroup' => $activeGroup,
             'groupId' => $groupId,
             'messages' => $messages,
+            'members' => $members,
+            'isAdmin' => $isAdmin,
             'currentUserId' => $userId,
+            'unreadCount' => $this->groups->unreadCount($userId),
         ]);
     }
 

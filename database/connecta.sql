@@ -72,6 +72,7 @@ CREATE TABLE IF NOT EXISTS groups (
     tag TEXT NULL,
     color TEXT NULL DEFAULT '#0D9488',
     icon TEXT NULL DEFAULT 'users',
+    invite_code TEXT NULL UNIQUE,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
@@ -84,6 +85,42 @@ CREATE TABLE IF NOT EXISTS group_members (
     FOREIGN KEY (group_id) REFERENCES groups(id) ON DELETE CASCADE,
     FOREIGN KEY (contact_id) REFERENCES contacts(id) ON DELETE CASCADE,
     UNIQUE(group_id, contact_id)
+);
+
+CREATE TABLE IF NOT EXISTS group_user_members (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    role TEXT NOT NULL DEFAULT 'member',
+    joined_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (group_id) REFERENCES groups(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    UNIQUE(group_id, user_id)
+);
+
+CREATE TABLE IF NOT EXISTS group_join_requests (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    status TEXT NOT NULL DEFAULT 'pending',
+    message TEXT NULL,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    responded_at TEXT NULL,
+    FOREIGN KEY (group_id) REFERENCES groups(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    UNIQUE(group_id, user_id)
+);
+
+CREATE TABLE IF NOT EXISTS notifications (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    type TEXT NOT NULL,
+    title TEXT NOT NULL,
+    body TEXT NULL,
+    data TEXT NULL,
+    is_read INTEGER NOT NULL DEFAULT 0,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS group_messages (
